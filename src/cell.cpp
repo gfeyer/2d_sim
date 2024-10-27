@@ -33,6 +33,7 @@ Cell::Cell() : id(Cell::idCounter.fetch_add(1)) {
     sf::Font& font = ResourceManager::getFont(conf::FONT_1);
     this->text.setFont(font);
     this->text.setString(std::to_string(this->id));
+    this->text.setScale(0.5f, 0.5f);
     this->text.setPosition(
         static_cast<float>(row) * conf::TILE_SIZE + 0,
         static_cast<float>(column) * conf::TILE_SIZE + 0

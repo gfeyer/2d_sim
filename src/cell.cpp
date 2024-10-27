@@ -2,6 +2,7 @@
 
 #include "conf.hpp"
 #include "logger.hpp"
+#include "resource_manager.hpp"
 
 // Properties
 std::atomic<uint64_t> Cell::idCounter{0};
@@ -28,6 +29,14 @@ Cell::Cell() : id(Cell::idCounter.fetch_add(1)) {
         static_cast<float>(row) * conf::TILE_SIZE,
         static_cast<float>(column) * conf::TILE_SIZE
     );
+
+    sf::Font& font = ResourceManager::getFont(conf::FONT_1);
+    this->text.setFont(font);
+    this->text.setString(std::to_string(this->id));
+    this->text.setPosition(
+        static_cast<float>(row) * conf::TILE_SIZE + 0,
+        static_cast<float>(column) * conf::TILE_SIZE + 0
+    );
 }
 
 Cell::~Cell() {
@@ -36,8 +45,8 @@ Cell::~Cell() {
 
 void Cell::render(sf::RenderWindow& window) {
     
-
     window.draw(this->shape);
+    window.draw(this->text);
 }
 
 void Cell::update(float dt) {

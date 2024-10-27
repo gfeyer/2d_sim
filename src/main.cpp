@@ -23,9 +23,12 @@ int main()
         {
             if (event.type == sf::Event::Closed)
             {
+                log_trace << "Window closed";
                 window.close();  
             }
+
             if(event.key.code == sf::Keyboard::Escape){
+                log_trace << "Escape pressed, closing window";
                 window.close();
             }
         }

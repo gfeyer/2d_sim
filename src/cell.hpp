@@ -15,16 +15,18 @@ struct Properties {
 
 class Cell{
     static std::atomic<uint64_t> idCounter;  // ID counter, thread safe
-    Properties properties;
-
     const uint64_t id;
 
-    // Shape to visully represent the cell
-    sf::RectangleShape shape;
+    // Properties
+    Properties properties;
 
     // Position in grid
     int row;
     int column;
+
+    // Rendering vars
+    sf::RectangleShape shape;
+    sf::Text text;
 
 public:
     Cell();

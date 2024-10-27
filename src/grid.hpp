@@ -13,6 +13,7 @@ class Grid{
     std::vector<std::vector<Cell>> grid;
 
 public:
+    Grid() = default;
     Grid(size_t rows, size_t cols);
 };
 

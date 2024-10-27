@@ -1,10 +1,6 @@
 #include <iostream>
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-
-#include <iostream>
-
+#include "simulation.hpp"
 #include "conf.hpp"
 
 
@@ -12,6 +8,10 @@ int main()
 {
     auto window = sf::RenderWindow({conf::WINDOW_WIDTH_PX, conf::WINDOW_HEIGHT_PX}, "2d Sim");
     window.setFramerateLimit(60);
+
+    Simulation sim;
+
+    auto time = sf::Clock();
 
     // Main Loop
     while (window.isOpen())
@@ -29,11 +29,14 @@ int main()
         }
 
         // Update(dt)
+        sim.update(time.restart().asSeconds());
+
 
         // Draw(window)
         window.clear();
 
         // Render
+        sim.render(window);
 
         window.display();
     }

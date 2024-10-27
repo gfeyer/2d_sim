@@ -11,6 +11,7 @@ class Simulation
 
     public:
         Simulation();
+        ~Simulation();
         void update(float dt);
         void render(sf::RenderWindow &window);
 };

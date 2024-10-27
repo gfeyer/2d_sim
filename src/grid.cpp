@@ -1,5 +1,5 @@
 #include "grid.hpp"
-
+#include "logger.hpp"
 Cell::Cell() {
 }
 
@@ -13,4 +13,6 @@ Grid::Grid(size_t rows, size_t cols) {
     }
 }
 
-
+Grid::~Grid() {
+    log_trace << "Grid::~Grid()";
+}

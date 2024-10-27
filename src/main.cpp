@@ -2,13 +2,16 @@
 
 #include "simulation.hpp"
 #include "conf.hpp"
-
+#include "logger.hpp"
 
 int main()
 {
+    logger::SetLevelTrace();
+    
     auto window = sf::RenderWindow({conf::WINDOW_WIDTH_PX, conf::WINDOW_HEIGHT_PX}, "2D Sim");
     window.setFramerateLimit(60);
 
+    log_info << "Starting...";
     Simulation sim;
 
     auto time = sf::Clock();

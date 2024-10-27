@@ -1,4 +1,5 @@
 #include "simulation.hpp"
+#include "grid.hpp"
 
 #include <iostream>
 Simulation::Simulation() {

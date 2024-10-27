@@ -30,7 +30,7 @@ void Simulation::updateGrid(float dt) {
 
 void Simulation::updateEntities(float dt) {
     for (auto& entity : entities) {
-        entity->update(dt);
+        entity->update(dt, *this->grid);
     }
 }
 

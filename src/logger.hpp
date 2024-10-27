@@ -1,5 +1,5 @@
-#ifndef LOGGER_HPP_
-#define LOGGER_HPP_
+#ifndef LOGGER_HPP
+#define LOGGER_HPP
 
 #include <thread>
 #include <sstream>
@@ -57,4 +57,4 @@ namespace logger {
 
 } // logger
 
-#endif // LOGGER_H_
+#endif // LOGGER_HPP

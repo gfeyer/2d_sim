@@ -7,7 +7,7 @@
 #include <memory>
 class Simulation
 {
-    std::unique_ptr<Grid> grid_ptr;
+    std::unique_ptr<Grid> grid;
 
     public:
         Simulation();

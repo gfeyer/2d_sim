@@ -6,12 +6,12 @@
 
 #include <iostream>
 Simulation::Simulation(){
-    log_trace << "Simulation::Simulation()";
+    log_trace << "CTOR Simulation::Simulation()";
     this->grid = std::make_unique<Grid>(conf::GRID_ROWS, conf::GRID_COLS);
 }
 
 Simulation::~Simulation() {
-    log_trace << "Simulation::~Simulation()";
+    log_trace << "DTOR Simulation::~Simulation()";
 }
 
 void Simulation::update(float dt) {

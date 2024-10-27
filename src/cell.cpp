@@ -9,7 +9,7 @@ std::atomic<uint64_t> Cell::idCounter{0};
 
 // Cell
 Cell::Cell() : id(Cell::idCounter.fetch_add(1)) {
-    log_trace << "Cell::Cell(), id:" << this->id;
+    log_trace << "CTOR Cell::Cell(), id:" << this->id;
 
     // Base properties
     row = this->id % conf::GRID_COLS;
@@ -40,7 +40,7 @@ Cell::Cell() : id(Cell::idCounter.fetch_add(1)) {
 }
 
 Cell::~Cell() {
-    log_trace << "Cell::~Cell(), id:" << this->id;
+    log_trace << "~DTOR Cell::~Cell(), id:" << this->id;
 }
 
 void Cell::render(sf::RenderWindow& window) {

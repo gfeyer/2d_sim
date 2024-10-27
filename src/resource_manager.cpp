@@ -3,11 +3,11 @@
 #include "logger.hpp"
 
 ResourceManager::ResourceManager() {
-    log_trace << "ResourceManager::ResourceManager()";
+    log_trace << "CTOR ResourceManager::ResourceManager()";
 }
 
 ResourceManager::~ResourceManager() {
-    log_trace << "ResourceManager::~ResourceManager()";
+    log_trace << "DTOR ResourceManager::~ResourceManager()";
 }
 
 ResourceManager& ResourceManager::getInstance() {

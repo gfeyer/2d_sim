@@ -15,8 +15,31 @@ Simulation::~Simulation() {
 }
 
 void Simulation::update(float dt) {
+    updateGrid(dt);
+    updateEntities(dt);
 }
 
 void Simulation::render(sf::RenderWindow& window) {
+    renderGrid(window);
+    renderEntities(window);
+}
+
+void Simulation::updateGrid(float dt) {
+    this->grid->update(dt);
+}
+
+void Simulation::updateEntities(float dt) {
+    for (auto& entity : entities) {
+        entity->update(dt);
+    }
+}
+
+void Simulation::renderGrid(sf::RenderWindow& window) {
     this->grid->render(window);
+}
+
+void Simulation::renderEntities(sf::RenderWindow& window) {
+    for (auto& entity : entities) {
+        entity->render(window);
+    }
 }

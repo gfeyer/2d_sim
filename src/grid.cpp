@@ -26,3 +26,6 @@ void Grid::render(sf::RenderWindow& window) {
         }
     }
 }
+
+void Grid::update(float dt) {
+}

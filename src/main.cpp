@@ -27,10 +27,11 @@ int main()
                 window.close();  
             }
 
-            if(event.key.code == sf::Keyboard::Escape){
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
                 log_trace << "Escape pressed, closing window";
                 window.close();
             }
+
         }
 
         // Update(dt)

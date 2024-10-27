@@ -14,7 +14,7 @@
 
 #define LOG(level, tag) \
 if (level > logger::Log::ReportingLevel) ; \
-else logger::Log().Get(level)<<"[" << std::hex << std::this_thread::get_id() << "][" << __FUNCTION__ << ":" << std::dec << __LINE__ << "]: "<<tag
+else logger::Log().Get(level) << "[" << std::hex << std::this_thread::get_id() << "][" << __FUNCTION__ << ":" << std::dec << __LINE__ << "]: " << tag
 
 
 

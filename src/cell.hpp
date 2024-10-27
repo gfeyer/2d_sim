@@ -19,6 +19,13 @@ class Cell{
 
     const uint64_t id;
 
+    // Shape to visully represent the cell
+    sf::RectangleShape shape;
+
+    // Position in grid
+    int row;
+    int column;
+
 public:
     Cell();
     ~Cell();

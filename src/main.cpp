@@ -35,7 +35,7 @@ int main()
 
 
         // Draw(window)
-        window.clear();
+        window.clear(sf::Color::Black);
 
         // Render
         sim.render(window);

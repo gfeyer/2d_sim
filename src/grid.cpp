@@ -22,7 +22,7 @@ Grid::~Grid() {
 void Grid::render(sf::RenderWindow& window) {
     for(size_t r = 0; r < grid.size(); r++) {
         for(size_t c = 0; c < grid[r].size(); c++) {
-            // grid[r][c].render(window);
+            grid[r][c]->render(window);
         }
     }
 }

@@ -7,7 +7,7 @@
 #include <iostream>
 Simulation::Simulation(){
     log_trace << "Simulation::Simulation()";
-    this->grid = Grid(conf::WINDOW_WIDTH_PX / conf::TILE_SIZE, conf::WINDOW_HEIGHT_PX / conf::TILE_SIZE);
+    this->grid_ptr = std::make_unique<Grid>(conf::WINDOW_WIDTH_PX / conf::TILE_SIZE, conf::WINDOW_HEIGHT_PX / conf::TILE_SIZE);
 }
 
 Simulation::~Simulation() {

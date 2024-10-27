@@ -16,7 +16,7 @@ ResourceManager& ResourceManager::getInstance() {
 }
 
 sf::Font& ResourceManager::getFont(const std::string& fontName) {
-    ResourceManager& instance = getInstance(); // Get reference to the instance
+    ResourceManager& instance = ResourceManager::getInstance(); // Get reference to the instance
 
     auto it = instance.fonts.find(fontName);
     if (it == instance.fonts.end()) {

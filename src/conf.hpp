@@ -3,9 +3,9 @@
 
 namespace conf
 {
-    const int M = 20;
-    const int N = 10;
-    const int BLOCK_SIZE = 32;
+    const uint TILE_SIZE = 32;
+    const uint WINDOW_WIDTH_PX = 640;
+    const uint WINDOW_HEIGHT_PX = 480;
 }
 
 #endif

@@ -12,6 +12,8 @@ public:
     bool isComplete() const override;
 
 private:
+    template <typename T> T interpolate(float duration, T from, T to);
+
     float duration;                 // Duration of the action
     float elapsed;                  // Elapsed time
     sf::Vector2f targetPosition;    // Target position
@@ -19,3 +21,9 @@ private:
 };
 
 #endif // MOVE_TO_HPP
+
+template <typename T>
+inline T MoveTo::interpolate(float t, T from, T to) {
+    T newPosition = from + (to - from) * t;
+    return newPosition;
+}

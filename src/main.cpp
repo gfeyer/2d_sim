@@ -38,7 +38,6 @@ int main()
         // Update(dt)
         sim.update(time.restart().asSeconds());
 
-
         // Draw(window)
         window.clear(sf::Color::Black);
 

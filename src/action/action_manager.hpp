@@ -3,7 +3,6 @@
 
 #include "action.hpp"  
 #include "entity/entity_properties.hpp"
-#include "utility/logger.hpp"
 
 #include <vector>
 #include <memory>

@@ -1,8 +1,6 @@
 #ifndef CELL_HPP
 #define CELL_HPP
 
-#include "utility/logger.hpp"
-
 #include <SFML/Graphics.hpp>
 #include <atomic>
 

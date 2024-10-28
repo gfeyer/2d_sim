@@ -21,6 +21,7 @@ public:
 private:
     void updateGrid(float dt);
     void updateEntities(float dt);
+    void updateActions(float dt);
 
     void renderGrid(sf::RenderWindow &window);
     void renderEntities(sf::RenderWindow &window);

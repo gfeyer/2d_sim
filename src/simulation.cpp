@@ -1,5 +1,6 @@
 #include "simulation.hpp"
 
+#include "action_manager.hpp"
 #include "conf.hpp"
 #include "grid.hpp"
 #include "logger.hpp"
@@ -20,6 +21,7 @@ Simulation::~Simulation() {
 void Simulation::update(float dt) {
     updateGrid(dt);
     updateEntities(dt);
+    updateActions(dt);
 }
 
 void Simulation::render(sf::RenderWindow& window) {
@@ -35,6 +37,10 @@ void Simulation::updateEntities(float dt) {
     for (auto& entity : entities) {
         entity->update(dt);
     }
+}
+
+void Simulation::updateActions(float dt) {
+    ActionManager::getInstance().update(dt);
 }
 
 void Simulation::renderGrid(sf::RenderWindow& window) {

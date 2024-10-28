@@ -7,6 +7,7 @@
 int main()
 {
     logger::SetLevelDebug();
+    log_debug << "Starting simulation";
 
     auto window = sf::RenderWindow({conf::WINDOW_WIDTH_PX, conf::WINDOW_HEIGHT_PX}, "2D Sim");
     window.setFramerateLimit(60);

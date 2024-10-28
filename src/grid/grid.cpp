@@ -32,12 +32,10 @@ void Grid::update(float dt) {
 }
 
 sf::Vector2f Grid::cellToPixel(sf::Vector2i position) {
-    if (position.x >= grid.size() || position.y >= grid[0].size())
+    if (position.x >= grid.size() || position.y >= grid[0].size() || position.x < 0 || position.y < 0)
     {
-        sf::Vector2i pos;
-        if(position.x >= grid.size()) pos.x = grid.size() - 1;
-        if(position.y >= grid[0].size()) pos.y = grid[0].size() - 1;
-        return cellToPixel(pos);
+        log_debug << "Invalid position: " << position.x << ", " << position.y;
+        return cellToPixel(sf::Vector2i(0, 0));
     }
     
     return sf::Vector2f(

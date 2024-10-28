@@ -10,9 +10,10 @@ Simulation::Simulation(){
     log_trace << "CTOR Simulation::Simulation()";
     this->grid = std::make_unique<Grid>(conf::GRID_ROWS, conf::GRID_COLS);
     
-    auto totalEntities = rand() % 20;
+    // auto totalEntities = rand() % (conf::GRID_ROWS + conf::GRID_COLS);
+    auto totalEntities = (conf::GRID_ROWS + conf::GRID_COLS)*5;
     log_debug << "Creating " << totalEntities << " entities";
-    
+
     for(int i=0; i < totalEntities; ++i){
         auto entity = std::make_unique<Entity>(*this->grid);
         this->entities.push_back(std::move(entity));

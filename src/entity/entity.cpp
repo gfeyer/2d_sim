@@ -25,14 +25,40 @@ Entity::Entity(Grid& grid) : grid(grid) {
 
     // Add some random actions
     auto sequence = std::make_shared<ActionSequence>();
-    int totalActions = rand() % 10+1;
+    int totalActions = rand() % 20+1;
     
     for(int i=0; i < totalActions; ++i){
-        int row = rand() % gridSize.x;
-        int col = rand() % gridSize.y;
-        auto moveTo = std::make_shared<MoveTo>(0.5f, grid.cellToPixel(sf::Vector2i(row, col)));
-        moveTo->setCallback([this, row, col] { 
-            this->cellPosition = sf::Vector2i(row, col); 
+
+        auto moveTo = std::make_shared<MoveTo>(0.f, grid.cellToPixel(this->cellPosition));
+        moveTo->setCallback([this, sequence] { 
+            
+            auto direction = rand() % 5;
+            if(direction == 0){
+                // no further callbacks
+                return;
+            }
+
+            sf::Vector2i targetCellPosition;
+
+            if(direction == 1 && this->cellPosition.y < this->grid.size().y-1){ // Move Up
+                targetCellPosition = sf::Vector2i(this->cellPosition.x, this->cellPosition.y+1);
+            } else if(direction == 2 && this->cellPosition.y > 0){ // Move Down
+                targetCellPosition = sf::Vector2i(this->cellPosition.x, this->cellPosition.y-1);
+            } else if(direction == 3 && this->cellPosition.x > 0){ // Move Left
+                targetCellPosition = sf::Vector2i(this->cellPosition.x-1, this->cellPosition.y);
+            } else if(direction == 4 && this->cellPosition.x < this->grid.size().x-1){ // Move Right
+                targetCellPosition = sf::Vector2i(this->cellPosition.x+1, this->cellPosition.y);
+            }
+            else{
+                // cannot move in that direction so no change
+                targetCellPosition = this->cellPosition;
+            }
+
+            std::shared_ptr<Action> moveTo;
+            moveTo = std::make_shared<MoveTo>(0.5f, this->grid.cellToPixel(targetCellPosition));
+            this->cellPosition = targetCellPosition;
+            
+            sequence->addAction(moveTo);
         });
         sequence->addAction(moveTo);
     }
@@ -40,7 +66,6 @@ Entity::Entity(Grid& grid) : grid(grid) {
     sequence->setCallback([this] { 
         this->shape.setFillColor(sf::Color::Red); 
         this->cellPosition = sf::Vector2i(1, 1);
-        log_debug << "Sequence Completed";
     });
 
     // Run the action on the entity

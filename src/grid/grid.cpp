@@ -32,6 +32,14 @@ void Grid::update(float dt) {
 }
 
 sf::Vector2f Grid::cellToPixel(sf::Vector2i position) {
+    if (position.x >= grid.size() || position.y >= grid[0].size())
+    {
+        sf::Vector2i pos;
+        if(position.x >= grid.size()) pos.x = grid.size() - 1;
+        if(position.y >= grid[0].size()) pos.y = grid[0].size() - 1;
+        return cellToPixel(pos);
+    }
+    
     return sf::Vector2f(
         position.y * conf::TILE_SIZE + conf::TILE_SIZE / 2,
         position.x * conf::TILE_SIZE + conf::TILE_SIZE / 2

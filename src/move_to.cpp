@@ -6,11 +6,11 @@ MoveTo::MoveTo(float duration, sf::Vector2f to)
 : duration(duration), targetPosition(to), elapsed(0.0f) {}
 
 
-void MoveTo::update(float dt, std::shared_ptr<EntityProperties>  entity) {
+void MoveTo::update(float dt, std::shared_ptr<EntityProperties>  properties) {
         if (isComplete()) return;
 
         if(first_run) {
-            startPosition = entity->position;
+            startPosition = properties->position;
             first_run = false;
         }
 
@@ -25,7 +25,7 @@ void MoveTo::update(float dt, std::shared_ptr<EntityProperties>  entity) {
         sf::Vector2f newPosition = startPosition + (targetPosition - startPosition) * t;
 
         // entity->setPosition(newPosition);
-        entity->position = newPosition;
+        properties->position = newPosition;
 
         // Check for completion and run callback
         checkAndRunCallback();

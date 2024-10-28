@@ -16,7 +16,7 @@ public:
     }
 
     // Update the action
-    virtual void update(float dt, std::shared_ptr<EntityProperties>  entity) = 0;
+    virtual void update(float dt, std::shared_ptr<EntityProperties>  properties) = 0;
 
     // Check if the action is complete
     virtual bool isComplete() const = 0;

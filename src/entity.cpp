@@ -21,8 +21,8 @@ Entity::Entity(Grid& grid) : grid(grid) {
     auto pos = grid.cellToPixel(this->cellPosition);
     this->properties->position = pos;
 
-    auto moveTo1 = std::make_shared<MoveTo>(1.0f, grid.cellToPixel(sf::Vector2i(0, 1)));
-    auto moveTo2 = std::make_shared<MoveTo>(1.0f, grid.cellToPixel(sf::Vector2i(1, 0)));
+    auto moveTo1 = std::make_shared<MoveTo>(0.5f, grid.cellToPixel(sf::Vector2i(0, 1)));
+    auto moveTo2 = std::make_shared<MoveTo>(0.5f, grid.cellToPixel(sf::Vector2i(1, 0)));
 
     auto sequence = std::make_shared<ActionSequence>();
     sequence->addAction(moveTo1);

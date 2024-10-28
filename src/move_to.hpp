@@ -10,7 +10,7 @@
 class MoveTo : public Action {
 public:
     MoveTo(float duration, sf::Vector2f to);
-    void update(float dt, std::shared_ptr<EntityProperties> entity) override;
+    void update(float dt, std::shared_ptr<EntityProperties> properties) override;
     bool isComplete() const override;
 
 private:

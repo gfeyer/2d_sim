@@ -15,7 +15,7 @@ public:
     }
 
     // Add an action for an entity
-    void runAction(std::shared_ptr<EntityProperties> entity, std::shared_ptr<Action> action);
+    void runAction(std::shared_ptr<EntityProperties> properties, std::shared_ptr<Action> action);
 
     // Update all actions
     void update(float dt);
@@ -30,7 +30,7 @@ private:
 
     // Struct to store an entity and its action
     struct EntityAction {
-        std::shared_ptr<EntityProperties>  entity;
+        std::shared_ptr<EntityProperties>  properties;
         std::shared_ptr<Action> action;
     };
 

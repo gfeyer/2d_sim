@@ -13,12 +13,12 @@ public:
     }
 
     // Update the current action in the sequence
-    void update(float dt, std::shared_ptr<EntityProperties> entity) override {
+    void update(float dt, std::shared_ptr<EntityProperties> properties) override {
         if (actions.empty()) return;
 
         // Update the current action
         auto currentAction = actions.front();
-        currentAction->update(dt, entity);
+        currentAction->update(dt, properties);
 
         // Check if the current action is complete
         if (currentAction->isComplete()) {

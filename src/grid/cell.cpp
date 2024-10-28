@@ -1,8 +1,8 @@
 #include "cell.hpp"
 
 #include "conf.hpp"
-#include "logger.hpp"
-#include "resource_manager.hpp"
+#include "utility/logger.hpp"
+#include "resource/resource_manager.hpp"
 
 // Properties
 std::atomic<uint64_t> Cell::idCounter{0};

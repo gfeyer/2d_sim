@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "simulation.hpp"
+#include "simulation/simulation.hpp"
 #include "conf.hpp"
-#include "logger.hpp"
+#include "utility/logger.hpp"
 
 int main()
 {

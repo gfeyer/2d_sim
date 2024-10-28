@@ -2,7 +2,7 @@
 #define MOVE_TO_HPP
 
 #include "action.hpp"
-#include "entity_properties.hpp"
+#include "entity/entity_properties.hpp"
 #include <SFML/Graphics.hpp>
 
 #include <memory>

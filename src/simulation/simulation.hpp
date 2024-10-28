@@ -1,8 +1,8 @@
 #ifndef SIM_HPP
 #define SIM_HPP
 
-#include "entity.hpp"
-#include "grid.hpp"
+#include "entity/entity.hpp"
+#include "grid/grid.hpp"
 #include <SFML/Graphics.hpp>
 
 #include <memory>

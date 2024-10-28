@@ -1,7 +1,7 @@
 #include "grid.hpp"
 #include "cell.hpp"
 #include "conf.hpp"
-#include "logger.hpp"
+#include "utility/logger.hpp"
 
 
 Grid::Grid(size_t rows, size_t cols) {

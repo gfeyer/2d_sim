@@ -1,7 +1,5 @@
 #include "action_manager.hpp"
 
-#include "logger.hpp"
-#include "entity_properties.hpp"
 #include <algorithm>
 #include <memory>
 

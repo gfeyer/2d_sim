@@ -1,10 +1,10 @@
 #include "entity.hpp"
 
-#include "action.hpp"
-#include "action_sequence.hpp"
-#include "action_manager.hpp"
-#include "grid.hpp"
-#include "move_to.hpp"
+#include "action/action.hpp"
+#include "action/action_sequence.hpp"
+#include "action/action_manager.hpp"
+#include "grid/grid.hpp"
+#include "action/move_to.hpp"
 
 Entity::Entity(Grid& grid) : grid(grid) {
 

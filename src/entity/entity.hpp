@@ -2,7 +2,7 @@
 #define ENTITY_HPP
 
 #include "entity_properties.hpp"
-#include "grid.hpp"
+#include "grid/grid.hpp"
 #include <SFML/Graphics.hpp>
 
 #include <memory>

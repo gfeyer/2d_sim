@@ -1,7 +1,7 @@
 #ifndef CELL_HPP
 #define CELL_HPP
 
-#include "logger.hpp"
+#include "utility/logger.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <atomic>

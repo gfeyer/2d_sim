@@ -22,7 +22,7 @@ public:
 
         // Check if the current action is complete
         if (currentAction->isComplete()) {
-            currentAction->checkAndRunCallback();  // Run the callback if any
+            currentAction->checkAndRunCallback();  // Run the callback for the action, if any
             actions.pop();  // Move to the next action
 
             if (actions.empty()) {

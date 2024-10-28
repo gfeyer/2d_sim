@@ -1,6 +1,6 @@
 #include "resource_manager.hpp"
 
-#include "logger.hpp"
+#include "utility/logger.hpp"
 
 ResourceManager::ResourceManager() {
     log_trace << "CTOR ResourceManager::ResourceManager()";

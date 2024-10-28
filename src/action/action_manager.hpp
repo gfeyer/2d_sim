@@ -1,10 +1,12 @@
 #ifndef ACTION_MANAGER_HPP
 #define ACTION_MANAGER_HPP
 
+#include "action.hpp"  
+#include "entity/entity_properties.hpp"
+#include "utility/logger.hpp"
+
 #include <vector>
 #include <memory>
-#include "action.hpp"  
-#include "entity_properties.hpp"
 
 class ActionManager {
 public:

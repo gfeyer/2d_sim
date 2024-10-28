@@ -1,9 +1,9 @@
 #include "simulation.hpp"
 
-#include "action_manager.hpp"
+#include "action/action_manager.hpp"
 #include "conf.hpp"
-#include "grid.hpp"
-#include "logger.hpp"
+#include "grid/grid.hpp"
+#include "utility/logger.hpp"
 
 #include <iostream>
 Simulation::Simulation(){

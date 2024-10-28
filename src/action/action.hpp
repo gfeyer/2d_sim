@@ -1,7 +1,7 @@
 #ifndef ACTION_HPP
 #define ACTION_HPP
 
-#include "entity_properties.hpp"
+#include "entity/entity_properties.hpp"
 
 #include <functional>
 #include <memory>

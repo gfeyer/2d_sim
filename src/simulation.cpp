@@ -8,6 +8,9 @@
 Simulation::Simulation(){
     log_trace << "CTOR Simulation::Simulation()";
     this->grid = std::make_unique<Grid>(conf::GRID_ROWS, conf::GRID_COLS);
+    
+    auto entity = std::make_unique<Entity>(*this->grid);
+    this->entities.push_back(std::move(entity));
 }
 
 Simulation::~Simulation() {
@@ -30,7 +33,7 @@ void Simulation::updateGrid(float dt) {
 
 void Simulation::updateEntities(float dt) {
     for (auto& entity : entities) {
-        entity->update(dt, *this->grid);
+        entity->update(dt);
     }
 }
 

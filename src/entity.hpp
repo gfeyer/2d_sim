@@ -7,15 +7,28 @@
 
 class Entity
 {
-    int row;
-    int column;
-        
+    Grid& grid;
+
+    sf::Vector2i cellPosition;
+
+    // Movement
+    bool isMoving;
+    const float speed = 1.0f;
+    sf::Vector2f deltaPosition;
+    sf::Vector2f deltaRemaining;
+
+    // Rendering
+    sf::CircleShape shape;
+
 public:
-    Entity();
+    Entity(Grid&);
     ~Entity();
 
-    void update(float dt, const Grid&);
+    void update(float dt);
     void render(sf::RenderWindow& window);
+
+private:
+    void moveToCell(sf::Vector2i);
 };
 
 

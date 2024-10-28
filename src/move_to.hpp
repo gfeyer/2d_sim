@@ -9,8 +9,8 @@
 
 class MoveTo : public Action {
 public:
-    MoveTo(float duration, sf::Vector2f from, sf::Vector2f to);
-    void update(float dt, std::shared_ptr<EntityProperties>  entity) override;
+    MoveTo(float duration, sf::Vector2f to);
+    void update(float dt, std::shared_ptr<EntityProperties> entity) override;
     bool isComplete() const override;
 
 private:
@@ -18,6 +18,7 @@ private:
     float elapsed;                  // Elapsed time
     sf::Vector2f targetPosition;    // Target position
     sf::Vector2f startPosition;     // original position
+    bool first_run = true;
 };
 
 #endif // MOVE_TO_HPP

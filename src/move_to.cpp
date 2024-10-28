@@ -2,12 +2,17 @@
 
 #include <memory>
 
-MoveTo::MoveTo(float duration, sf::Vector2f from, sf::Vector2f to) 
-: duration(duration), startPosition(from), targetPosition(to), elapsed(0.0f) {}
+MoveTo::MoveTo(float duration, sf::Vector2f to) 
+: duration(duration), targetPosition(to), elapsed(0.0f) {}
 
 
 void MoveTo::update(float dt, std::shared_ptr<EntityProperties>  entity) {
         if (isComplete()) return;
+
+        if(first_run) {
+            startPosition = entity->position;
+            first_run = false;
+        }
 
         // Calculate the progress
         elapsed += dt;

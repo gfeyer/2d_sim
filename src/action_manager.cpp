@@ -1,10 +1,11 @@
 #include "action_manager.hpp"
 
 #include "logger.hpp"
-
+#include "entity_properties.hpp"
 #include <algorithm>
+#include <memory>
 
-void ActionManager::runAction(Entity* entity, std::shared_ptr<Action> action) {
+void ActionManager::runAction(std::shared_ptr<EntityProperties> entity, std::shared_ptr<Action> action) {
     // Add the action to the list
     activeActions.push_back({entity, action});
 }

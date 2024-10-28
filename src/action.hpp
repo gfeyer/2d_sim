@@ -1,9 +1,10 @@
 #ifndef ACTION_HPP
 #define ACTION_HPP
 
-#include "entity.hpp"
+#include "entity_properties.hpp"
 
 #include <functional>
+#include <memory>
 
 class Action {
 public:
@@ -15,8 +16,7 @@ public:
     }
 
     // Update the action
-    // TODO: should we actually pass other properties in here?
-    virtual void update(float dt, Entity* entity) = 0;
+    virtual void update(float dt, std::shared_ptr<EntityProperties>  entity) = 0;
 
     // Check if the action is complete
     virtual bool isComplete() const = 0;
@@ -31,6 +31,7 @@ public:
 
 protected:
     std::function<void()> callback;  // Completion callback
+    
 };
 
 

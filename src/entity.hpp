@@ -5,12 +5,15 @@
 #include "grid.hpp"
 #include <SFML/Graphics.hpp>
 
+#include <memory>
 
 class Entity
 {
     Grid& grid;
     sf::Vector2i cellPosition;
-    EntityProperties properties;
+
+    // Properties that can be interpolated externally
+    std::shared_ptr<EntityProperties> properties;
 
     // Rendering
     sf::CircleShape shape;
@@ -21,10 +24,6 @@ public:
 
     void update(float dt);
     void render(sf::RenderWindow& window);
-
-    sf::Vector2f getPosition() const;
-    void setPosition(sf::Vector2f);
-
 };
 
 

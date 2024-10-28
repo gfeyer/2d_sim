@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 #include "action.hpp"  
-#include "entity.hpp"  
+#include "entity_properties.hpp"
 
 class ActionManager {
 public:
@@ -15,7 +15,7 @@ public:
     }
 
     // Add an action for an entity
-    void runAction(Entity* entity, std::shared_ptr<Action> action);
+    void runAction(std::shared_ptr<EntityProperties> entity, std::shared_ptr<Action> action);
 
     // Update all actions
     void update(float dt);
@@ -30,7 +30,7 @@ private:
 
     // Struct to store an entity and its action
     struct EntityAction {
-        Entity* entity;
+        std::shared_ptr<EntityProperties>  entity;
         std::shared_ptr<Action> action;
     };
 

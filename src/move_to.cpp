@@ -16,7 +16,7 @@ void MoveTo::update(float dt, Entity* entity) {
 
         // Linearly interpolate the position
         // sf::Vector2f newPosition = startPosition + (targetPosition - startPosition) * t;
-        sf::Vector2f newPosition = interpolate<sf::Vector2f>(t, startPosition, targetPosition);
+        sf::Vector2f newPosition = startPosition + (targetPosition - startPosition) * t;
 
         entity->setPosition(newPosition);
 

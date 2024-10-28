@@ -17,7 +17,7 @@ public:
     void render(sf::RenderWindow &window);
     void update(float dt);
 
-    sf::Vector2f cellToPixel(sf::Vector2i& position);
+    sf::Vector2f cellToPixel(sf::Vector2i position);
 };
 
 #endif

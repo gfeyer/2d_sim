@@ -18,7 +18,7 @@ Entity::Entity(Grid& grid) : grid(grid) {
     this->shape.setPosition(pos.x, pos.y);
 
 
-    auto moveTo = std::make_shared<MoveTo>(1.0f, this->shape.getPosition(), sf::Vector2f(256, 256));
+    auto moveTo = std::make_shared<MoveTo>(1.0f, this->shape.getPosition(), grid.cellToPixel(sf::Vector2i(1, 1)));
     moveTo->setCallback([this] { 
         this->shape.setFillColor(sf::Color::Red); 
         this->cellPosition = sf::Vector2i(1, 1);    

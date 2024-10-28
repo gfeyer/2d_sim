@@ -31,7 +31,7 @@ void Grid::render(sf::RenderWindow& window) {
 void Grid::update(float dt) {
 }
 
-sf::Vector2f Grid::cellToPixel(sf::Vector2i& position) {
+sf::Vector2f Grid::cellToPixel(sf::Vector2i position) {
     return sf::Vector2f(
         position.y * conf::TILE_SIZE + conf::TILE_SIZE / 2,
         position.x * conf::TILE_SIZE + conf::TILE_SIZE / 2

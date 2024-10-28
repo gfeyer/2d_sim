@@ -22,8 +22,3 @@ private:
 
 #endif // MOVE_TO_HPP
 
-template <typename T>
-inline T MoveTo::interpolate(float t, T from, T to) {
-    T newPosition = from + (to - from) * t;
-    return newPosition;
-}

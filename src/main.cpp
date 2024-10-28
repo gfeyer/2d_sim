@@ -6,7 +6,7 @@
 
 int main()
 {
-    logger::SetLevelTrace();
+    logger::SetLevelDebug();
 
     auto window = sf::RenderWindow({conf::WINDOW_WIDTH_PX, conf::WINDOW_HEIGHT_PX}, "2D Sim");
     window.setFramerateLimit(60);

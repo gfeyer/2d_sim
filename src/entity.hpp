@@ -8,7 +8,6 @@
 class Entity
 {
     Grid& grid;
-
     sf::Vector2i cellPosition;
 
     // Movement

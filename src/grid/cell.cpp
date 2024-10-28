@@ -53,7 +53,7 @@ void Cell::render(sf::RenderWindow& window) {
 void Cell::update(float dt) {
 }
 
-const Properties& Cell::getProperties() const {
+const CellProperties& Cell::getProperties() const {
         return this->properties;
 }
 

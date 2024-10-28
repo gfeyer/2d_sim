@@ -25,6 +25,7 @@ private:
 
     void renderGrid(sf::RenderWindow &window);
     void renderEntities(sf::RenderWindow &window);
+
 };
 
 #endif

@@ -37,3 +37,9 @@ sf::Vector2f Grid::cellToPixel(sf::Vector2i position) {
         position.x * conf::TILE_SIZE + conf::TILE_SIZE / 2
     );
 }
+
+sf::Vector2u Grid::size() {
+    unsigned int rows = grid.size();
+    unsigned int cols = grid[0].size();
+    return sf::Vector2u{rows, cols};
+}

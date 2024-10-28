@@ -6,9 +6,14 @@
 
 int main()
 {
+    // Logger
     logger::SetLevelDebug();
     log_debug << "Starting simulation";
 
+    // Seed random number generator
+    srand(static_cast<unsigned int>(time(nullptr)));
+
+    // Window
     auto window = sf::RenderWindow({conf::WINDOW_WIDTH_PX, conf::WINDOW_HEIGHT_PX}, "2D Sim");
     window.setFramerateLimit(60);
 

@@ -18,6 +18,7 @@ public:
     void update(float dt);
 
     sf::Vector2f cellToPixel(sf::Vector2i position);
+    sf::Vector2u size();
 };
 
 #endif

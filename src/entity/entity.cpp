@@ -5,14 +5,16 @@
 #include "action/action_manager.hpp"
 #include "grid/grid.hpp"
 #include "action/move_to.hpp"
+#include "utility/logger.hpp"
 
 Entity::Entity(Grid& grid) : grid(grid) {
 
     // create properties
     this->properties = std::make_shared<EntityProperties>();
 
-    // get cell position
-    this->cellPosition = sf::Vector2i(0, 0);
+    // set cell position
+    auto gridSize = grid.size();
+    this->cellPosition = sf::Vector2i(rand() % gridSize.x, rand() % gridSize.y);
 
     // create shape
     this->shape.setRadius(20.f);
@@ -21,18 +23,25 @@ Entity::Entity(Grid& grid) : grid(grid) {
     auto pos = grid.cellToPixel(this->cellPosition);
     this->properties->position = pos;
 
-    auto moveTo1 = std::make_shared<MoveTo>(0.5f, grid.cellToPixel(sf::Vector2i(0, 1)));
-    auto moveTo2 = std::make_shared<MoveTo>(0.5f, grid.cellToPixel(sf::Vector2i(1, 0)));
-
+    // Add some random actions
     auto sequence = std::make_shared<ActionSequence>();
-    sequence->addAction(moveTo1);
-    sequence->addAction(moveTo2);
+    int totalActions = rand() % 10+1;
+    
+    for(int i=0; i < totalActions; ++i){
+        int row = rand() % gridSize.x;
+        int col = rand() % gridSize.y;
+        auto moveTo = std::make_shared<MoveTo>(0.5f, grid.cellToPixel(sf::Vector2i(row, col)));
+        moveTo->setCallback([this, row, col] { 
+            this->cellPosition = sf::Vector2i(row, col); 
+        });
+        sequence->addAction(moveTo);
+    }
+
     sequence->setCallback([this] { 
         this->shape.setFillColor(sf::Color::Red); 
-        this->cellPosition = sf::Vector2i(1, 1); 
+        this->cellPosition = sf::Vector2i(1, 1);
+        log_debug << "Sequence Completed";
     });
-
-
 
     // Run the action on the entity
     ActionManager::getInstance().runAction(this->properties, sequence);

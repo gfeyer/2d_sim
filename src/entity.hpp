@@ -1,6 +1,7 @@
 #ifndef ENTITY_HPP
 #define ENTITY_HPP
 
+#include "entity_properties.hpp"
 #include "grid.hpp"
 #include <SFML/Graphics.hpp>
 
@@ -9,6 +10,7 @@ class Entity
 {
     Grid& grid;
     sf::Vector2i cellPosition;
+    EntityProperties properties;
 
     // Rendering
     sf::CircleShape shape;

@@ -15,7 +15,8 @@ Entity::Entity(Grid& grid) : grid(grid) {
     this->shape.setOrigin(this->shape.getRadius(), this->shape.getRadius());
     this->shape.setFillColor(sf::Color::Green);
     auto pos = grid.cellToPixel(this->cellPosition);
-    this->shape.setPosition(pos.x, pos.y);
+    // this->shape.setPosition(pos.x, pos.y);
+    this->properties.position = pos;
 
 
     auto moveTo = std::make_shared<MoveTo>(1.0f, this->shape.getPosition(), grid.cellToPixel(sf::Vector2i(1, 1)));
@@ -35,13 +36,14 @@ void Entity::update(float dt) {
 }
 
 void Entity::render(sf::RenderWindow& window) {
+    this->shape.setPosition(this->properties.position);
     window.draw(this->shape);
 }
 
 sf::Vector2f Entity::getPosition() const {
-    return this->shape.getPosition();
+    return this->properties.position;
 }
 
 void Entity::setPosition(sf::Vector2f pos) {
-    this->shape.setPosition(pos.x, pos.y);
+    this->properties.position = pos;
 }

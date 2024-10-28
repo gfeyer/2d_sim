@@ -4,7 +4,7 @@
 #include <string>
 namespace conf
 {
-    const uint TILE_SIZE = 128;
+    const uint TILE_SIZE = 64;
     const uint WINDOW_WIDTH_PX = 1024;
     const uint WINDOW_HEIGHT_PX = 1024;
 

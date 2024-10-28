@@ -21,7 +21,7 @@ Cell::Cell() : id(Cell::idCounter.fetch_add(1)) {
     // Rendering
     this->shape = sf::RectangleShape(sf::Vector2f(conf::TILE_SIZE, conf::TILE_SIZE));
     this->shape.setFillColor(sf::Color::Black);
-    this->shape.setOutlineColor(sf::Color::Green);
+    this->shape.setOutlineColor(sf::Color::White);
     this->shape.setOutlineThickness(1);
 
     // Pixel Position
@@ -33,7 +33,7 @@ Cell::Cell() : id(Cell::idCounter.fetch_add(1)) {
     sf::Font& font = ResourceManager::getFont(conf::FONT_1);
     this->text.setFont(font);
     this->text.setString(std::to_string(this->id));
-    this->text.setScale(0.5f, 0.5f);
+    this->text.setScale(conf::TILE_SIZE/128.0, conf::TILE_SIZE/128.0);
     this->text.setPosition(
         static_cast<float>(row) * conf::TILE_SIZE + 0,
         static_cast<float>(column) * conf::TILE_SIZE + 0

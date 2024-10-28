@@ -1,5 +1,6 @@
 #include "entity.hpp"
 
+#include "conf.hpp"
 #include "action/action.hpp"
 #include "action/action_sequence.hpp"
 #include "action/action_manager.hpp"
@@ -17,7 +18,7 @@ Entity::Entity(Grid& grid) : grid(grid) {
     this->cellPosition = sf::Vector2i(rand() % gridSize.x, rand() % gridSize.y);
 
     // create shape
-    this->shape.setRadius(20.f);
+    this->shape.setRadius(conf::TILE_SIZE / 4);
     this->shape.setOrigin(this->shape.getRadius(), this->shape.getRadius());
     this->shape.setFillColor(sf::Color::Green);
     auto pos = grid.cellToPixel(this->cellPosition);
